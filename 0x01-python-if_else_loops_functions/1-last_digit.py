@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-l_digit = number % 10
+if number >= 0:
+    l_digit = number % 10
+else:
+    l_digit = -(10 - number % 10)
+
 if l_digit == 0:
     str = "and is 0"
 elif l_digit < 6:
