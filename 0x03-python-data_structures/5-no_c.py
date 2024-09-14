@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def no_c(my_string):
     if not my_string:
-        pass
+        return ""
     else:
         a = list(my_string)
         if "c" in a:
