@@ -1,15 +1,8 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    if not my_string:
-        return ""
-    else:
-        a = list(my_string)
-        if "c" in a:
-            a.remove("c")
-        if "C" in a:
-            a.remove("C")
-        s = ""
-        for chr in a:
+    s = ""
+    for chr in my_string:
+        if chr != "c" and chr != "C":
             s += chr
 
-        return s
+    return s
