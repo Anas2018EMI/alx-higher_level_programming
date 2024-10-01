@@ -1,0 +1,5 @@
+python3 -c 'print(__import__("3-square").__doc__)'
+python3 -c 'print(__import__("3-square").Square.__doc__)'
+python3 -c 'print(__import__("3-square").Square.__init__.__doc__)'
+python3 -c 'print(__import__("3-square").Square.area.__doc__)'
+python3 -c 'print(__import__("3-square").my_function.__doc__)'
