@@ -1,7 +1,10 @@
-python3 -c 'print(__import__("4-square").__doc__)'
-python3 -c 'print(__import__("4-square").Square.__doc__)'
-python3 -c 'print(__import__("4-square").Square.__init__.__doc__)'
-python3 -c 'print(__import__("4-square").Square.area.__doc__)'
-python3 -c 'print(__import__("4-square").Square.size.__doc__)'
-python3 -c 'print(__import__("4-square").Square.area.__doc__)'
-python3 -c 'print(__import__("4-square").my_function.__doc__)'
+python3 -c 'print(__import__("6-square").__doc__)'
+python3 -c 'print(__import__("6-square").Square.__doc__)'
+python3 -c 'print(__import__("6-square").Square.__init__.__doc__)'
+python3 -c 'print(__import__("6-square").Square.area.__doc__)'
+python3 -c 'print(__import__("6-square").Square.size.__doc__)'
+python3 -c 'print(__import__("6-square").Square.position.__doc__)'
+python3 -c 'print(__import__("6-square").Square.my_print.__doc__)'
+
+
+python3 -c 'print(__import__("6-square").my_function.__doc__)'
