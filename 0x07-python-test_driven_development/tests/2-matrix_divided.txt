@@ -1,0 +1,42 @@
+Test file for 2-matrix_divided.py
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# Test with a valid matrix and div
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> matrix
+[[1, 2, 3], [4, 5, 6]]
+
+# Test with a matrix that is not a list of lists
+>>> matrix = "not a matrix"
+>>> try:
+...     matrix_divided(matrix, 3)
+... except Exception as e:
+...     print(e)
+matrix must be a matrix (list of lists) of integers/floats
+
+# Test with a matrix that has rows of different sizes
+>>> matrix = [[1, 2], [3, 4, 5]]
+>>> try:
+...     matrix_divided(matrix, 3)
+... except Exception as e:
+...     print(e)
+Each row of the matrix must have the same size
+
+# Test with a div that is not a number
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> try:
+...     matrix_divided(matrix, "not a number")
+... except Exception as e:
+...     print(e)
+div must be a number
+
+# Test with div equal to 0
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> try:
+...     matrix_divided(matrix, 0)
+... except Exception as e:
+...     print(e)
+division by zero
