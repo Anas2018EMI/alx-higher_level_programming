@@ -1,0 +1,68 @@
+Test file for 5-text_indentation.py
+
+
+Import the function:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test with a normal string:
+
+    >>> text_indentation("Hello. How are you? I'm fine: thanks.")
+    Hello.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    I'm fine:
+    <BLANKLINE>
+    thanks.
+
+Test with a string without punctuation:
+
+    >>> text_indentation("This is a test without punctuation")
+    This is a test without punctuation
+
+Test with empty string:
+
+    >>> text_indentation("")
+
+Test with only spaces:
+
+    >>> text_indentation("   ")
+
+Test with punctuation at the beginning:
+
+    >>> text_indentation(".?:Hello")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    Hello
+
+Test with punctuation at the end:
+
+    >>> text_indentation("Hello.?:")
+    Hello.
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+
+Test with non-string input:
+
+    >>> text_indentation(12345)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test with multiple spaces between words:
+
+    >>> text_indentation("Hello.   How are you?   Fine:   thanks.")
+    Hello.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    Fine:
+    <BLANKLINE>
+    thanks.
