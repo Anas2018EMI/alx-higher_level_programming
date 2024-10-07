@@ -11,63 +11,70 @@ Where N is an integer greater than or equal to 4.
 import sys
 
 
-def is_safe(board, row, col):
+class NQueens:
     """
-    Check if it's safe to place a queen at board[row][col]
-
-    Args:
-    board (list): The current state of the board
-    row (int): The row to check
-    col (int): The column to check
-
-    Returns:
-    bool: True if it's safe to place a queen, False otherwise
+    A class to solve the N Queens problem.
     """
-    # Check this row on left side
-    for i in range(col):
-        if board[i] == row or \
-           board[i] - i == row - col or \
-           board[i] + i == row + col:
-            return False
-    return True
+
+    def __init__(self, n):
+        """
+        Initialize the NQueens solver.
+
+        Args:
+        n (int): The size of the board and number of queens
+        """
+        self.n = n
+        self.board = [-1] * n
+
+    def is_safe(self, row, col):
+        """
+        Check if it's safe to place a queen at board[row][col]
+
+        Args:
+        row (int): The row to check
+        col (int): The column to check
+
+        Returns:
+        bool: True if it's safe to place a queen, False otherwise
+        """
+        for i in range(col):
+            if self.board[i] == row or \
+               self.board[i] - i == row - col or \
+               self.board[i] + i == row + col:
+                return False
+        return True
+
+    def solve_util(self, col):
+        """
+        Utility function to solve N Queens problem
+        using backtracking
+
+        Args:
+        col (int): The current column being processed
+
+        Yields:
+        list: A valid solution to the N Queens problem
+        """
+        if col == self.n:
+            yield [[i, self.board[i]] for i in range(self.n)]
+        else:
+            for row in range(self.n):
+                if self.is_safe(row, col):
+                    self.board[col] = row
+                    yield from self.solve_util(col + 1)
+
+    def solve(self):
+        """
+        Solve the N Queens problem and print all solutions
+        """
+        for solution in self.solve_util(0):
+            print(solution)
 
 
-def solve_nqueens_util(board, col, n):
+def main():
     """
-    Utility function to solve N Queens problem using backtracking
-
-    Args:
-    board (list): The current state of the board
-    col (int): The current column being processed
-    n (int): The size of the board
-
-    Yields:
-    list: A valid solution to the N Queens problem
+    Main function to handle input and solve the N Queens problem
     """
-    if col == n:
-        yield [[i, board[i]] for i in range(n)]
-    else:
-        for row in range(n):
-            if is_safe(board, row, col):
-                board[col] = row
-                yield from solve_nqueens_util(board, col + 1, n)
-
-
-def solve_nqueens(n):
-    """
-    Solve the N Queens problem and
-    print all solutions
-
-    Args:
-    n (int): The size of the board
-    and number of queens
-    """
-    board = [-1] * n
-    for solution in solve_nqueens_util(board, 0, n):
-        print(solution)
-
-
-if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
@@ -82,4 +89,9 @@ if __name__ == "__main__":
         print("N must be at least 4")
         sys.exit(1)
 
-    solve_nqueens(n)
+    nqueens = NQueens(n)
+    nqueens.solve()
+
+
+if __name__ == "__main__":
+    main()
