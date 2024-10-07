@@ -1,0 +1,32 @@
+Test file for 3-say_my_name.py
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Test with a valid first name and last name
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+# Test with a valid first name and no last name
+>>> say_my_name("Bob")
+My name is Bob 
+
+# Test with a first name that is not a string
+>>> try:
+...     say_my_name(12, "White")
+... except Exception as e:
+...     print(e)
+first_name must be a string
+
+# Test with a last name that is not a string
+>>> try:
+...     say_my_name("John", 12)
+... except Exception as e:
+...     print(e)
+last_name must be a string
+
+# Test with a first name and last name that are not strings
+>>> try:
+...     say_my_name(12, 34)
+... except Exception as e:
+...     print(e)
+first_name must be a string
