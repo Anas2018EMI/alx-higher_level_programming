@@ -1,0 +1,49 @@
+Test file for 100-matrix_mul.py
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+# Test with two valid matrices
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+# Test with a matrix that is not a list
+>>> try:
+...     matrix_mul("not a matrix", [[1, 2], [3, 4]])
+... except Exception as e:
+...     print(e)
+m_a must be a list
+
+# Test with a matrix that is not a list of lists
+>>> try:
+...     matrix_mul([1, 2, 3], [[1, 2], [3, 4]])
+... except Exception as e:
+...     print(e)
+m_a must be a list of lists
+
+# Test with an empty matrix
+>>> try:
+...     matrix_mul([], [[1, 2], [3, 4]])
+... except Exception as e:
+...     print(e)
+m_a can't be empty
+
+# Test with a matrix that contains a non-integer or non-float element
+>>> try:
+...     matrix_mul([[1, 2], [3, "4"]], [[1, 2], [3, 4]])
+... except Exception as e:
+...     print(e)
+m_a should contain only integers or floats
+
+# Test with a matrix that is not a rectangle
+>>> try:
+...     matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4]])
+... except Exception as e:
+...     print(e)
+m_a and m_b can't be multiplied
+
+# Test with two matrices that can't be multiplied
+>>> try:
+...     matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [4, 5, 6]])
+... except Exception as e:
+...     print(e)
+[[9, 12, 15], [19, 26, 33]]
