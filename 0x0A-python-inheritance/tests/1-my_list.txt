@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+>>> MyList = __import__('1-my_list').MyList
 
 # Test case 1: Empty list
 >>> my_list = MyList()
