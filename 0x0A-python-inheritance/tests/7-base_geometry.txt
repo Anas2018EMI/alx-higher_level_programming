@@ -28,3 +28,38 @@
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
+
+# Test case 6: Float value
+>>> try:
+...     bg.integer_validator("height", 10.5)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] height must be an integer
+
+# Test case 7: List value
+>>> try:
+...     bg.integer_validator("sides", [3, 4, 5])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] sides must be an integer
+
+# Test case 8: Dictionary value
+>>> try:
+...     bg.integer_validator("angles", {"a": 90, "b": 90, "c": 90})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] angles must be an integer
+
+# Test case 9: Tuple value
+>>> try:
+...     bg.integer_validator("coordinates", (1, 2, 3))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] coordinates must be an integer
+
+# Test case 10: Set value
+>>> try:
+...     bg.integer_validator("elements", {1, 2, 3})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] elements must be an integer
