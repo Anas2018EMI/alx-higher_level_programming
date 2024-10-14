@@ -63,3 +63,10 @@
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] elements must be an integer
+
+# Test case 11: Boolean value
+>>> try:
+...     bg.integer_validator("flag", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] flag must be an integer
