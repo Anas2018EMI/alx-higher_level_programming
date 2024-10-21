@@ -1,4 +1,4 @@
-"""Square module
+""" Define the Square module
     """
 from models.rectangle import Rectangle
 
