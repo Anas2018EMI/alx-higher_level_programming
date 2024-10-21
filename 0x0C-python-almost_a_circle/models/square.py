@@ -20,7 +20,6 @@ class Square(Rectangle):
             id (int, optional): _description_. Defaults to None.
         """
         super().__init__(size, size, x, y, id)
-        self.size = size
 
     def __str__(self):
         """Custom printing of Square instances
@@ -38,7 +37,7 @@ class Square(Rectangle):
         Returns:
             _type_: _description_
         """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -46,18 +45,9 @@ class Square(Rectangle):
 
         Args:
             value (_type_): _description_
-
-        Raises:
-            TypeError: _description_
-            ValueError: _description_
         """
-        if type(value) is not int:
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
-        self.__height = value
-        self.__size = value
+        self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         """assigns each argument to its correspondant attribute
