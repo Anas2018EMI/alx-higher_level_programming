@@ -16,11 +16,9 @@ if __name__ == "__main__":
         ORDER BY cities.id
 """, (argv[4],))
     rows = cur.fetchall()
-    i = 0
-    if len(rows) > 0:
-        for i in range(len(rows) - 1):
-            print(f"{rows[i][0]}, ", end='')
-
-        print(rows[i+1][0])
+    tuples = ()
+    for row in rows:
+        tuples += row
+    print(*tuples, sep=", ")
     cur.close()
     db.close()
